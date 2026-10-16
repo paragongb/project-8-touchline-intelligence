@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Build a football game plan, lock it in, and learn from an AI tactical review." />
+  <title>Touchline Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#"><span class="brand-mark">TI</span><span>Touchline<br>Intelligence</span></a>
+    <nav aria-label="Primary navigation"><a class="active" href="#fixtures">Fixtures</a><a href="#how">How it works</a></nav>
+    <button class="profile" aria-label="Open profile">JP</button>
+  </header>
+
+  <main>
+    <section class="hero" id="fixtures">
+      <div>
+        <p class="eyebrow">MATCHDAY LAB · ROUND 8</p>
+        <h1>Your ideas.<br><em>Tested by the match.</em></h1>
+        <p class="lede">Step into the dugout. Build and lock your tactical plan before kickoff, then get an evidence-backed AI coaching report after the final whistle.</p>
+      </div>
+      <div class="hero-stat"><strong>100%</strong><span>synthetic football data</span><small>Built for safe, repeatable tactical experiments.</small></div>
+    </section>
+
+    <section class="section-head"><div><p class="eyebrow">UPCOMING</p><h2>Choose your match</h2></div><p>Plans lock when the match begins.</p></section>
+    <section class="fixtures" aria-label="Upcoming synthetic fixtures" id="fixture-list"></section>
+
+    <section class="method" id="how">
+      <p class="eyebrow">THE MATCHDAY LOOP</p>
+      <div class="steps">
+        <article><span>01</span><h3>Build</h3><p>Pick a shape, assign roles, and write instructions in your own words.</p></article>
+        <article><span>02</span><h3>Lock</h3><p>Commit your plan before kickoff. No hindsight, no moving the goalposts.</p></article>
+        <article><span>03</span><h3>Watch</h3><p>Follow a football-realistic synthetic event stream and tactical momentum.</p></article>
+        <article><span>04</span><h3>Learn</h3><p>Receive a grounded comparison with evidence, praise, and better alternatives.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="planner-dialog" class="planner-dialog">
+    <button class="close" aria-label="Close planner">×</button>
+    <div class="planner-head"><div><p class="eyebrow">PRE-MATCH TACTICS LAB</p><h2 id="dialog-title">Build your match plan</h2><p class="planner-fixture" id="dialog-fixture"></p></div><span class="draft-pill">● DRAFT</span></div>
+    <div class="planner-layout">
+      <section class="board-column">
+        <div class="board-tools"><label>Formation<select id="formation"><option value="4-3-3">4-3-3</option><option value="4-2-3-1">4-2-3-1</option><option value="4-4-2">4-4-2</option><option value="3-4-2-1">3-4-2-1</option></select></label><span>Drag players to change their position</span></div>
+        <div class="pitch" id="pitch" aria-label="Interactive football pitch"><div class="pitch-lines"><i class="halfway"></i><i class="center-circle"></i><i class="box top-box"></i><i class="box bottom-box"></i><i class="goal top-goal"></i><i class="goal bottom-goal"></i></div><div class="pitch-players" id="pitch-players"></div></div>
+        <div class="bench-wrap"><div class="bench-heading"><strong>Substitutes</strong><span>Choose one to swap with a starter</span></div><div class="bench" id="bench"></div></div>
+      </section>
+      <aside class="plan-sidebar">
+        <div class="side-title"><div><p class="eyebrow">YOUR XI</p><h3>Squad & roles</h3></div><span id="lineup-count">11 / 11</span></div>
+        <div class="selected-player" id="selected-player"><span class="selected-shirt">08</span><div><small>SELECT A PLAYER</small><strong>Tap a player on the pitch</strong></div></div>
+        <label class="field-label" for="role-select">Player role</label><select id="role-select" disabled><option>Choose a player</option></select>
+        <div class="player-list" id="player-list"></div>
+      </aside>
+    </div>
+    <section class="settings-section"><div class="settings-title"><div><p class="eyebrow">TEAM INSTRUCTIONS</p><h3>How do you want to play?</h3></div><span>Six simple controls</span></div><div class="tactic-settings" id="tactic-settings"></div></section>
+    <section class="notes-section"><label for="strategy-text"><span><p class="eyebrow">YOUR OWN WORDS</p><strong>Write a match instruction</strong></span><small>AI interpretation comes next</small></label><textarea id="strategy-text" rows="3" placeholder="For example: If we are losing after 60 minutes, bring on Malik for Jonah and press higher."></textarea></section>
+    <div class="planner-actions"><p class="saved" id="saved-message" aria-live="polite">Your plan is saved on this device as you work.</p><button class="primary" id="save-draft">Save match plan</button></div>
+  </dialog>
+
+  <footer><span>Touchline Intelligence</span><span>All clubs, players, fixtures, and events are synthetic.</span></footer>
+  <script src="./app.js"></script>
+</body>
+</html>
